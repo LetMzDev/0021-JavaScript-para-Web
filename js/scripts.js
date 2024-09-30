@@ -1,10 +1,46 @@
 const item = document.getElementById ( "input-item" );
 const botao_Salvar_Item = document.getElementById ( "adicionar-item" );
+const lista_De_Compras = document.getElementById ( "lista-de-compras" );
 
 botao_Salvar_Item.addEventListener ( "click", Adicionar_Item );
 
 function Adicionar_Item ( evento )
 {
 	evento.preventDefault();
-	console.log ("ENTROu NA FUNÇÂO");
+
+	const item_Da_Lista = document.createElement ( "li" ); // Criando elemento li
+	const container_Item_Lista = document.createElement ( "div" ); // Criando elemento li
+	container_Item_Lista.classList.add ( "lista-item-container" ); // Add a class para a div
+
+	const container_Nome_Do_Item =  document.createElement ( "div" );
+	const nome_Do_Item = document.createElement ( "p" );
+	nome_Do_Item.innerText = item.value;	// Recebe o valor do campo de digitação
+	container_Nome_Do_Item.appendChild ( nome_Do_Item );
+
+	const container_Botoes = document.createElement ( "div" );
+	const botao_Remover = document.createElement ( "button" );	// Criando o botão remover
+	botao_Remover.classList.add ( "item-lista-button" );
+
+	const imagem_Remover = document.createElement ( "img" );
+	imagem_Remover.src = "./img/delete.svg";
+	imagem_Remover.alt = "Remover";
+
+	botao_Remover.appendChild ( imagem_Remover );
+	container_Botoes.appendChild (botao_Remover );
+
+	const botao_Editar = document.createElement ( "button" ); // Criando o botão editar
+	botao_Editar.classList.add ( "item-lista-button" );
+
+	const imagem_Editar = document.createElement ( "img" );
+	imagem_Editar.src = "./img/edit.svg";
+	imagem_Editar.alt = "Editar";
+
+	botao_Editar.appendChild ( imagem_Editar );
+	container_Botoes.appendChild ( botao_Editar );
+
+	container_Item_Lista.appendChild ( container_Nome_Do_Item );
+	container_Item_Lista.appendChild ( container_Botoes );
+	item_Da_Lista.appendChild ( container_Item_Lista ); // Coloca a div dentro do li
+
+	lista_De_Compras.appendChild ( item_Da_Lista );
 }
