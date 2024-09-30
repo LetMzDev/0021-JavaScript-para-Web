@@ -143,6 +143,8 @@ ul
 	background-color: var(--neutro);
 	border: 1px solid var(--preto);
 	cursor: pointer;
+	display: inline-block;
+    vertical-align: middle;
 	border-radius: 4px;
 	margin-right: 8px;
 }
@@ -174,4 +176,9 @@ ul
 {
 	background-color: transparent;
 	border: none;
+}
+
+.checkbox-container
+{
+	display: inline;
 }
