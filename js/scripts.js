@@ -4,6 +4,8 @@ const lista_De_Compras = document.getElementById ( "lista-de-compras" );
 
 botao_Salvar_Item.addEventListener ( "click", Adicionar_Item );
 
+let contador = 0; // Contador para os id do checkbox
+
 function Adicionar_Item ( evento )
 {
 	evento.preventDefault();
@@ -13,6 +15,31 @@ function Adicionar_Item ( evento )
 	container_Item_Lista.classList.add ( "lista-item-container" ); // Add a class para a div
 
 	const container_Nome_Do_Item =  document.createElement ( "div" );
+
+	// checkbox create
+		const container_Checkbox = document.createElement ( "div" );
+		container_Checkbox.classList.add ( "container-checkbox" );
+
+		const checkbox_Input = document.createElement ( "input" );
+		checkbox_Input.type = "checkbox";
+		checkbox_Input.classList.add ( "input-checkbox" );
+		checkbox_Input.id = "checkbox-" + contador++;
+
+		const checkbox_Label = document.createElement ( "label" );
+		checkbox_Label.setAttribute ( "for", checkbox_Input.id );
+
+		const checkbox_Customizado = document.createElement ( "div" );
+		checkbox_Customizado.classList.add ( "checkbox-customizado" );
+
+		checkbox_Label.appendChild ( checkbox_Input );
+		checkbox_Label.appendChild ( checkbox_Customizado );
+
+		container_Checkbox.appendChild ( checkbox_Label );
+
+		container_Nome_Do_Item.appendChild ( container_Checkbox );
+
+	// Fim checkbox
+
 	const nome_Do_Item = document.createElement ( "p" );
 	nome_Do_Item.innerText = item.value;	// Recebe o valor do campo de digitação
 	container_Nome_Do_Item.appendChild ( nome_Do_Item );
