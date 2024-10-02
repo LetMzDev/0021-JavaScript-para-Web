@@ -94,7 +94,16 @@ function Adicionar_Item ( evento )
 
 	container_Item_Lista.appendChild ( container_Nome_Do_Item );
 	container_Item_Lista.appendChild ( container_Botoes );
-	item_Da_Lista.appendChild ( container_Item_Lista ); // Coloca a div dentro do li
 
+	// Adicionando Data
+		const item_Data = document.createElement ( "p" );
+		item_Data.innerText = `${ new Date().toLocaleDateString ( "pt-BR", { weekday: "long" } )} ` +
+		`( ${ new Date().toLocaleDateString() }) ` +
+		`às ${ new Date().toLocaleTimeString ( "pt-BR", { hour: "numeric", minute: "numeric"}) }`;
+
+		item_Data.classList.add ( "texto-data" );
+
+	item_Da_Lista.appendChild ( container_Item_Lista ); // Coloca a div dentro do li
+	item_Da_Lista.appendChild ( item_Data );
 	lista_De_Compras.appendChild ( item_Da_Lista );
 }
