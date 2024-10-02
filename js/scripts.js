@@ -25,8 +25,21 @@ function Adicionar_Item ( evento )
 		checkbox_Input.classList.add ( "input-checkbox" );
 		checkbox_Input.id = "checkbox-" + contador++;
 
-		const checkbox_Label = document.createElement ( "label" );
+		const checkbox_Label = document.createElement ( "label" ); // Faz a conexão com  o checkbox
 		checkbox_Label.setAttribute ( "for", checkbox_Input.id );
+
+		// Marcar e desmarcar a caixa do Checkbox
+		checkbox_Label.addEventListener ( "click", function ( evento ) // Criação de função anonima
+		{
+			const checkbox_Input = evento.currentTarget.querySelector ( ".input-checkbox" );
+			const checkbox_Customizado = evento.currentTarget.querySelector ( ".checkbox-customizado" );
+
+			if ( checkbox_Input.checked )
+				checkbox_Customizado.classList.add ( "checked" );
+
+			else
+				checkbox_Customizado.classList.remove ( "checked" );
+		})
 
 		const checkbox_Customizado = document.createElement ( "div" );
 		checkbox_Customizado.classList.add ( "checkbox-customizado" );
