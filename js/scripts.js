@@ -1,3 +1,4 @@
+// Lista de Compras
 const item = document.getElementById ( "input-item" );
 const botao_Salvar_Item = document.getElementById ( "adicionar-item" );
 const lista_De_Compras = document.getElementById ( "lista-de-compras" );
@@ -5,6 +6,9 @@ const lista_De_Compras = document.getElementById ( "lista-de-compras" );
 botao_Salvar_Item.addEventListener ( "click", Adicionar_Item );
 
 let contador = 0; // Contador para os id do checkbox
+
+// Lista de Itens Comprados
+const lista_Comprados = document.getElementById ( "item-comprados" );
 
 function Adicionar_Item ( evento )
 {
@@ -35,10 +39,16 @@ function Adicionar_Item ( evento )
 			const checkbox_Customizado = evento.currentTarget.querySelector ( ".checkbox-customizado" );
 
 			if ( checkbox_Input.checked )
+			{
 				checkbox_Customizado.classList.add ( "checked" );
+				lista_Comprados.appendChild ( item_Da_Lista );
+			}
 
 			else
+			{
 				checkbox_Customizado.classList.remove ( "checked" );
+				lista_De_Compras.appendChild ( item_Da_Lista );
+			}
 		})
 
 		const checkbox_Customizado = document.createElement ( "div" );
