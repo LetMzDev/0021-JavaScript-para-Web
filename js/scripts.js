@@ -37,16 +37,19 @@ function Adicionar_Item ( evento )
 		{
 			const checkbox_Input = evento.currentTarget.querySelector ( ".input-checkbox" );
 			const checkbox_Customizado = evento.currentTarget.querySelector ( ".checkbox-customizado" );
+			const item_Titulo = evento.currentTarget.closest ( "li" ).querySelector ( "#item-titulo" );
 
 			if ( checkbox_Input.checked )
 			{
 				checkbox_Customizado.classList.add ( "checked" );
+				item_Titulo.style.textDecoration = "line-through";
 				lista_Comprados.appendChild ( item_Da_Lista );
 			}
 
 			else
 			{
 				checkbox_Customizado.classList.remove ( "checked" );
+				item_Titulo.style.textDecoration = "none";
 				lista_De_Compras.appendChild ( item_Da_Lista );
 			}
 		})
@@ -64,6 +67,7 @@ function Adicionar_Item ( evento )
 	// Fim checkbox
 
 	const nome_Do_Item = document.createElement ( "p" );
+	nome_Do_Item.id = "item-titulo"
 	nome_Do_Item.innerText = item.value;	// Recebe o valor do campo de digitação
 	container_Nome_Do_Item.appendChild ( nome_Do_Item );
 
