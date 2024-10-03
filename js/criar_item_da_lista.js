@@ -1,4 +1,5 @@
-import { Verificar_Lista_Comprados } from "./verificar_comprados";
+import { excluir_Item } from "./excluir_item.js";
+import { Verificar_Lista_Comprados } from "./verificar_comprados.js";
 
 const lista_De_Compras = document.getElementById ( "lista-de-compras" );
 let contador = 0; // Contador para os id do checkbox
@@ -74,6 +75,11 @@ export function Criar_Item_Da_Lista ( item )
 	const imagem_Remover = document.createElement ( "img" );
 	imagem_Remover.src = "./img/delete.svg";
 	imagem_Remover.alt = "Remover";
+
+	botao_Remover.addEventListener ( "click", function ()
+	{
+		excluir_Item ( item_Da_Lista );
+	})
 
 	botao_Remover.appendChild ( imagem_Remover );
 	container_Botoes.appendChild (botao_Remover );
