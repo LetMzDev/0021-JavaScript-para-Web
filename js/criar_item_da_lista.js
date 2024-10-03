@@ -1,5 +1,6 @@
 import { editar_Item } from "./editar_item.js";
 import { excluir_Item } from "./excluir_item.js";
+import { Gerar_Dia_Da_Semana } from "./gerar_dia_da_semana.js";
 import { Verificar_Lista_Comprados } from "./verificar_comprados.js";
 
 const lista_De_Compras = document.getElementById ( "lista-de-compras" );
@@ -105,9 +106,7 @@ export function Criar_Item_Da_Lista ( item )
 
 	// Adicionando Data
 		const item_Data = document.createElement ( "p" );
-		item_Data.innerText = `${ new Date().toLocaleDateString ( "pt-BR", { weekday: "long" } )} ` +
-		`( ${ new Date().toLocaleDateString() }) ` +
-		`às ${ new Date().toLocaleTimeString ( "pt-BR", { hour: "numeric", minute: "numeric"}) }`;
+		item_Data.innerText = Gerar_Dia_Da_Semana();
 
 		item_Data.classList.add ( "texto-data" );
 

@@ -1,3 +1,5 @@
+import { Gerar_Dia_Da_Semana } from "./gerar_dia_da_semana.js";
+
 export const editar_Item = ( elemento ) =>
 {
 	let novo_Item = prompt ( "Digite o novo nome do item:" );
@@ -15,5 +17,9 @@ export const editar_Item = ( elemento ) =>
 			elemento.querySelector ( ".checkbox-customizado" ).classList.add ( "checked" );
 			item_Texto_Atualizado.style.textDecoration = "line-through";
 		}
+
+		// Atualiza data de criação para a data em que foi editado
+        const data_De_Criacao = elemento.querySelector ( ".texto-data" );
+        data_De_Criacao.textContent = Gerar_Dia_Da_Semana();
 	}
 }
