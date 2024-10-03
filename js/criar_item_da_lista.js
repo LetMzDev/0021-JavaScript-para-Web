@@ -1,3 +1,4 @@
+import { editar_Item } from "./editar_item.js";
 import { excluir_Item } from "./excluir_item.js";
 import { Verificar_Lista_Comprados } from "./verificar_comprados.js";
 
@@ -90,6 +91,11 @@ export function Criar_Item_Da_Lista ( item )
 	const imagem_Editar = document.createElement ( "img" );
 	imagem_Editar.src = "./img/edit.svg";
 	imagem_Editar.alt = "Editar";
+
+	botao_Editar.addEventListener ( "click", function ()
+	{
+		editar_Item ( item_Da_Lista );
+	})
 
 	botao_Editar.appendChild ( imagem_Editar );
 	container_Botoes.appendChild ( botao_Editar );
