@@ -9,8 +9,15 @@ export function Adicionar_Item ( evento )
 {
 	evento.preventDefault();
 
+	if ( item.value === "" )
+	{
+		alert ( "Por favor, insira um item." );
+		return;
+	}
+
 	const item_Da_Lista = Criar_Item_Da_Lista ( item.value );
 	lista_De_Compras.appendChild ( item_Da_Lista );
 
 	Verificar_Lista_Vazia ( lista_De_Compras );
+	item.value = "";
 }
