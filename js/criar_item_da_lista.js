@@ -1,3 +1,5 @@
+
+const lista_De_Compras = document.getElementById ( "lista-de-compras" );
 let contador = 0; // Contador para os id do checkbox
 
 // Lista de Itens Comprados
