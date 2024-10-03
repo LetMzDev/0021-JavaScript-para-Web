@@ -1,3 +1,4 @@
+import { Verificar_Lista_Comprados } from "./verificar_comprados";
 
 const lista_De_Compras = document.getElementById ( "lista-de-compras" );
 let contador = 0; // Contador para os id do checkbox
@@ -45,6 +46,8 @@ export function Criar_Item_Da_Lista ( item )
 				item_Titulo.style.textDecoration = "none";
 				lista_De_Compras.appendChild ( item_Da_Lista );
 			}
+
+			Verificar_Lista_Comprados ( lista_Comprados );
 		})
 
 		const checkbox_Customizado = document.createElement ( "div" );
